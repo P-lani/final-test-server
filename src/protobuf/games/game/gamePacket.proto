@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import '../../common.proto';
+
+// 최상위 GamePacket 메시지
+message GamePacket {
+  oneof payload {
+
+    S2C_TestMessage testMessageToC = 9990;
+    C2S_TestMessage testMessageToS = 9991;
+
+    C2S_IceJoinTest iceJoinTest = 1000;
+
+    S2C_IceJoinGame iceJoinGame = 100;
+    S2C_IcePlayerSpawn icePlayerSpawn = 101;
+    S2C_IceGameStart iceGameStart = 102;
+    C2S_IcePlayerMove icePlayerMove = 103;
+    S2C_IceSyncNotification iceSyncNotification = 104;
+    S2C_IcePlayerDefeatNotification icePlayerDefeatNotification = 105;
+
+  }
+}

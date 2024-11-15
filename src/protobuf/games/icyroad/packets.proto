@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+
+// 패킷
+
+// 테스트용
+message S2C_TestMessage {
+    string message = 1;
+}
+
+message C2S_TestMessage {
+    string message = 1;
+}
+
+
+
+// 임시 접속?
+message C2S_IceJoinTest {
+  int32 playerId = 1;
+}
+
+
+message S2C_IceJoinGame {
+  int32 playerId = 1;
+  string gametype = 2;
+}
+
+message S2C_IcePlayerSpawn {
+  int32 playerId = 1;
+  float x = 2;
+  float z = 3;
+  float playerType = 4;
+}
+
+message S2C_IceGameStart {
+
+}
+
+message C2S_IcePlayerMove {
+int32 playerId = 1;
+float x = 2;
+float z = 3;
+int32 hp = 4;
+int32 state = 5;
+}
+
+message S2C_IceSyncNotification {
+      repeated UserLocation users = 1;
+
+    message UserLocation {
+        int32 playerId = 1;
+        float x = 2;
+        float z = 3;
+        int32 hp = 4;
+        int32 state = 5;
+    }
+}
+
+message S2C_IcePlayerDefeatNotification {
+int32 playerId = 1;
+}
+
